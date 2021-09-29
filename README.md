@@ -921,7 +921,7 @@ This gem use following gems:
 - [cgi](https://ruby-doc.org/stdlib-2.5.3/libdoc/cgi/rdoc/CGI.html)
 - json
 - [rss](https://github.com/ruby/rsshttps://github.com/ruby/rss)
-<br>
+
 <br>
 
 <a href="#table-of-contents">
