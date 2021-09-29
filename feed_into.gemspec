@@ -31,14 +31,12 @@ Gem::Specification.new do |spec|
 
   # Uncomment to register a new dependency of your gem
   # spec.add_dependency "example-gem", "~> 1.0"
-  spec.add_dependency 'nokogiri'
-  spec.add_dependency 'net/http'
-  spec.add_dependency 'time'
-  spec.add_dependency 'tzinfo'
-  spec.add_dependency 'active_support/core_ext/hash'
-  spec.add_dependency 'cgi'
-  spec.add_dependency 'json'
-  spec.add_dependency 'rss'
+  spec.add_dependency 'nokogiri', "~> 1.12.5"
+  spec.add_dependency 'time', "~> 0.1.0"
+  spec.add_dependency 'tzinfo', "~> 2.0.4"
+  spec.add_dependency 'cgi', "~> 0.2.0"
+  spec.add_dependency 'json', "~> 2.5.1"
+  spec.add_dependency 'rss', "~> 0.2.9"
 
   # For more information and examples about making a new gem, checkout our
   # guide at: https://bundler.io/guides/creating_gem.html
