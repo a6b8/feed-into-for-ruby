@@ -10,15 +10,15 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "Merge multiple different data streams into a custom structure."
   spec.description   = "Merge multiple different data streams into a custom structure. Also easy to expand by a custom module system."
-  spec.homepage      = "https://github.com/a6b8/feed-parser-for-ruby"
+  spec.homepage      = "https://github.com/a6b8/feed-into-for-ruby"
   spec.license       = "MIT"
   spec.required_ruby_version = ">= 2.4.0"
 
   spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/a6b8/feed-parser-for-ruby"
-  spec.metadata["changelog_uri"] = "https://raw.githubusercontent.com/a6b8/feed-parser-for-ruby/main/CHANGELOG.md"
+  spec.metadata["source_code_uri"] = "https://github.com/a6b8/feed-into-for-ruby"
+  spec.metadata["changelog_uri"] = "https://raw.githubusercontent.com/a6b8/feed-into-for-ruby/main/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
