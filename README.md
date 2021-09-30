@@ -82,7 +82,7 @@ feeds
 ```
 <br>
 <br>
-<a href="#table-of-contents">
+<a href="#headline">
 <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/feed-into-for-ruby/readme/headlines/table-of-contents.svg" height="38px" name="table-of-contents" alt="Table of Contents">
 </a>
 <br>
