@@ -6,9 +6,8 @@ jobs:
       - image: 'cimg/base:stable'
     steps:
       - checkout
-      - ruby/install:
-          version: 'ruby-3.0.0-latest'
-      - run: echo "Ruby 2.7 has been installed"
+      - run: bundle install
+      - run: ruby test/1.rb
 orbs:
   ruby: circleci/ruby@0.1.2
 version: 2.1
