@@ -5,8 +5,8 @@ jobs:
     steps:
       - checkout
       - ruby/install:
-          version: '2.7'
+          version: '3.0'
       - run: echo "Ruby 2.7 has been installed"
 orbs:
-  ruby: circleci/ruby@x.y
+  ruby: circleci/ruby@latest
 version: 2.1
