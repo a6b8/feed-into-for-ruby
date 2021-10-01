@@ -16,7 +16,6 @@ jobs:
     executor: ruby/default
     steps:
       - checkout
-      - ruby/bundle-install
       - run: ruby ./test/1.rb
 
 # Invoke jobs via workflows
