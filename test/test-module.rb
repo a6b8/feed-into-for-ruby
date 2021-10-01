@@ -1,4 +1,4 @@
-require '../lib/feed_into'
+require './lib/feed_into'
 require 'active_support/core_ext/hash/indifferent_access'
 
 puts 'MODULES:'
