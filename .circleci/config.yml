@@ -16,6 +16,7 @@ jobs:
     executor: ruby/default
     steps:
       - checkout
+      - run: ruby -v
       - run: bundle install
       - run: ruby ./test/1.rb
 
