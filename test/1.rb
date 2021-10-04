@@ -16,9 +16,8 @@ channel = {
 
 puts 'CHANNEL:'
 
-feed = FeedInto::Single.new( 
-    options: { channels: [ channel ] } 
-)
+feed = FeedInto::Single.new( options: { channels: [ channel ] } )
+feeds = FeedInto::Group.new( single: { channels: [ channel ] } )
 
 tests = {
     single: {
