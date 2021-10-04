@@ -133,8 +133,8 @@ puts "- group cmds error:\t\t#{res}"
 
 puts 'MODULE'
 
-feed_mod = FeedInto::Single.new( modules: '../test/modules/' )
-feeds_mod = FeedInto::Group.new( modules: '../test/modules/' ) 
+feed_mod = FeedInto::Single.new( modules: './test/modules/' )
+feeds_mod = FeedInto::Group.new( modules: './test/modules/' ) 
 
 res = feed_mod.analyse( item: tests[:single][:string_error] )
 puts "- single-error:\t\t\t#{!res[:success]}"
