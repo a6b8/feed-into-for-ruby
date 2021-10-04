@@ -1,7 +1,7 @@
 jobs:
   build:
     docker:
-      - image: cimg/ruby:3.0.2-buster-node-browsers-legacy
+      - image: cimg/ruby:3.0.2
     steps:
       - checkout
       - run: ruby --version
