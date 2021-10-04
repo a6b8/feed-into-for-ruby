@@ -15,3 +15,7 @@ channel = {
 }
 
 puts 'CHANNEL:'
+
+feed = FeedInto::Single.new( 
+    options: { channels: [ channel ] } 
+)
