@@ -182,7 +182,7 @@ results.push( feeds_mod
     .to_h()[:crypto].length == 0 )
 puts "- group cmds error:\t\t#{results.last}"
 
-
+puts
 if results.length == 20 and results.all?
     puts 'All tests passed.'
     exit 0

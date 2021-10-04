@@ -4,6 +4,5 @@ jobs:
       - image: cimg/ruby:3.0.2
     steps:
       - checkout
-      - run: ruby --version
       - run: bundle install
-      - run: ruby './test/1.rb'
+      - run: ruby './test/circle-ci.rb'
