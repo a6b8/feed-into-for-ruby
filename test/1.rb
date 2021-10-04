@@ -14,7 +14,7 @@ channel = {
     post: [ :pre_titles ]
 }
 
-puts 'CHANNEL:'
+puts 'CHANNEL'
 
 feed = FeedInto::Single.new( options: { channels: [ channel ] } )
 feeds = FeedInto::Group.new( single: { channels: [ channel ] } )
@@ -84,98 +84,109 @@ tests = {
     }
 }
 
+results = []
 
-res = feed.analyse( item: tests[:single][:string_error] )
-puts "- single-error:\t\t\t#{!res[:success]}"
+results.push( !feed.analyse( item: tests[:single][:string_error] )[:success] )
+puts "- single-error:\t\t\t#{results.last}"
 
-res = feed.analyse( item: tests[:single][:string] )
-puts "- single:\t\t\t#{res[:success]}"
+results.push( feed.analyse( item: tests[:single][:string] )[:success] )
+puts "- single:\t\t\t#{results.last}"
 
-res = feed.analyse( item: tests[:single][:cmd_incomplete] )[:result][:items][ 0 ][:title].class.to_s.eql? 'String'
-puts "- single incomplete:\t\t#{res}"
+results.push( feed.analyse( item: tests[:single][:cmd_incomplete] )[:result][:items][ 0 ][:title].class.to_s.eql? 'String' ) 
+puts "- single incomplete:\t\t#{results.last}"
 
-res = feed.analyse( item: tests[:single][:cmd_complete] )[:result][:items][ 0 ][:title].class.to_s.eql? 'String'
-puts "- single cmd complete:\t\t#{res}"
+results.push( feed.analyse( item: tests[:single][:cmd_complete] )[:result][:items][ 0 ][:title].class.to_s.eql? 'String' )
+puts "- single cmd complete:\t\t#{results.last}"
 
-res = feed.analyse( item: tests[:single][:cmd_error] )
-puts "- single cmd error:\t\t#{!res[:success]}"
+results.push( !feed.analyse( item: tests[:single][:cmd_error] )[:success] )
+puts "- single cmd error:\t\t#{results.last}"
 
-res = feeds
+results.push( feeds
     .analyse( items: tests[:group][:string], silent: true )
-    .to_h()[:unknown][ 0 ][:result][:items][ 0 ][:title].class.eql? String
-puts "- group string:\t\t\t#{res}"
+    .to_h()[:unknown][ 0 ][:result][:items][ 0 ][:title].class.eql? String )
+puts "- group string:\t\t\t#{results.last}"
 
-res = feeds
+results.push( feeds
     .analyse( items: tests[:group][:string], silent: true )
     .merge
-    .to_h()[:unknown].length == 40
-puts "- group string error:\t\t#{res}"
+    .to_h()[:unknown].length == 40 )
+puts "- group string error:\t\t#{results.last}"
 
-res = feeds
+results.push( feeds
     .analyse( items: tests[:group][:cmds_incomplete], silent: true )
     .merge
-    .to_h().keys.length == 2 # [:unknown].length == 40
-puts "- group cmds incomplete:\t#{res}"
+    .to_h().keys.length == 2 )
+puts "- group cmds incomplete:\t#{results.last}"
 
-res = feeds
+results.push( feeds
     .analyse( items: tests[:group][:cmds_complete], silent: true )
     .merge
-    .to_h()[:crypto].length  == 40
-puts "- group cmds complete:\t\t#{res}"
+    .to_h()[:crypto].length  == 40 )
+puts "- group cmds complete:\t\t#{results.last}"
 
-res = feeds
+results.push( feeds
     .analyse( items: tests[:group][:cmds_error], silent: true )
     .merge
-    .to_h()[:crypto].length == 0
-puts "- group cmds error:\t\t#{res}"
+    .to_h()[:crypto].length == 0 )
+puts "- group cmds error:\t\t#{results.last}"
 
 
-
+puts
 puts 'MODULE'
 
-feed_mod = FeedInto::Single.new( modules: Dir.pwd + '/test/modules/' )
-feeds_mod = FeedInto::Group.new( modules: Dir.pwd + '/test/modules/' ) 
+path_mod = Dir.pwd + '/test/modules/'
+feed_mod = FeedInto::Single.new( modules: path_mod )
+feeds_mod = FeedInto::Group.new( modules: path_mod ) 
 
-res = feed_mod.analyse( item: tests[:single][:string_error] )
-puts "- single-error:\t\t\t#{!res[:success]}"
+results.push( !feed_mod.analyse( item: tests[:single][:string_error] )[:success] )
+puts "- single-error:\t\t\t#{results.last}"
 
-res = feed_mod.analyse( item: tests[:single][:string] )
-puts "- single:\t\t\t#{res[:success]}"
+results.push( feed_mod.analyse( item: tests[:single][:string] )[:success] )
+puts "- single:\t\t\t#{results.last}"
 
-res = feed_mod.analyse( item: tests[:single][:cmd_incomplete] )[:result][:items][ 0 ][:title].class.to_s.eql? 'String'
-puts "- single incomplete:\t\t#{res}"
+results.push( feed_mod.analyse( item: tests[:single][:cmd_incomplete] )[:result][:items][ 0 ][:title].class.to_s.eql? 'String' )
+puts "- single incomplete:\t\t#{results.last}"
 
-res = feed_mod.analyse( item: tests[:single][:cmd_complete] )[:result][:items][ 0 ][:title].class.to_s.eql? 'String'
-puts "- single cmd complete:\t\t#{res}"
+results.push( feed_mod.analyse( item: tests[:single][:cmd_complete] )[:result][:items][ 0 ][:title].class.to_s.eql? 'String' )
+puts "- single cmd complete:\t\t#{results.last}"
 
-res = feed_mod.analyse( item: tests[:single][:cmd_error] )
-puts "- single cmd error:\t\t#{!res[:success]}"
+results.push( !feed_mod.analyse( item: tests[:single][:cmd_error] )[:success] )
+puts "- single cmd error:\t\t#{results.last}"
 
-res = feeds_mod
+results.push( feeds_mod
     .analyse( items: tests[:group][:string], silent: true )
-    .to_h()[:unknown][ 0 ][:result][:items][ 0 ][:title].class.eql? String
-puts "- group string:\t\t\t#{res}"
+    .to_h()[:unknown][ 0 ][:result][:items][ 0 ][:title].class.eql? String )
+puts "- group string:\t\t\t#{results.last}"
 
-res = feeds_mod
+results.push( feeds_mod
     .analyse( items: tests[:group][:string], silent: true )
     .merge
-    .to_h()[:unknown].length == 40
-puts "- group string error:\t\t#{res}"
+    .to_h()[:unknown].length == 40 )
+puts "- group string error:\t\t#{results.last}"
 
-res = feeds_mod
+results.push( feeds_mod
     .analyse( items: tests[:group][:cmds_incomplete], silent: true )
     .merge
-    .to_h().keys.length == 2 # [:unknown].length == 40
-puts "- group cmds incomplete:\t#{res}"
+    .to_h().keys.length == 2 )# [:unknown].length == 40
+puts "- group cmds incomplete:\t#{results.last}"
 
-res = feeds_mod
+results.push( feeds_mod
     .analyse( items: tests[:group][:cmds_complete], silent: true )
     .merge
-    .to_h()[:crypto].length  == 40
-puts "- group cmds complete:\t\t#{res}"
+    .to_h()[:crypto].length  == 40 )
+puts "- group cmds complete:\t\t#{results.last}"
 
-res = feeds_mod
+results.push( feeds_mod
     .analyse( items: tests[:group][:cmds_error], silent: true )
     .merge
-    .to_h()[:crypto].length == 0
-puts "- group cmds error:\t\t#{res}"
+    .to_h()[:crypto].length == 0 )
+puts "- group cmds error:\t\t#{results.last}"
+
+
+if results.length == 20 and results.all?
+    puts 'All tests passed.'
+    exit 0
+else
+    puts 'Not all tests passed.'
+    exit 1
+end
