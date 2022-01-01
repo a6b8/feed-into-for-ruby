@@ -1,7 +1,7 @@
 <a href="#table-of-contents">
 <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/feed-into-for-ruby/readme/headlines/headline.svg" height="45px" name="# Feed Into for Ruby" alt="Feed Into for Ruby">
 </a>
-T
+
 Merge multiple different data streams to a custom structure based on categories. Also easy to expand by a custom module system. 
 <br>
 <br>
