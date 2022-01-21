@@ -7,7 +7,7 @@ Merge multiple different data streams to a custom structure based on categories.
 <br>
 <br>
 <a href="#table-of-contents">
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/examples.svg" height="55px" name="examples" alt="Examples">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/examples.svg" height="45px" name="examples" alt="Examples">
 </a>
 
 **Merge multiple Streams**
@@ -83,7 +83,7 @@ feeds
 <br>
 <br>
 <a href="#headline">
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/table-of-contents.svg" height="55px" name="table-of-contents" alt="Table of Contents">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/table-of-contents.svg" height="45px" name="table-of-contents" alt="Table of Contents">
 </a>
 <br>
 
@@ -125,7 +125,7 @@ feeds
 <br>
 <br>
 <a href="#table-of-contents">
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/quickstart.svg" height="55px" name="quickstart" alt="Quickstart">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/quickstart.svg" height="45px" name="quickstart" alt="Quickstart">
 </a>
 
 ```ruby
@@ -157,7 +157,7 @@ feed
 <br>
 <br>
 <a href="#table-of-contents">
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/setup.svg" height="55px" name="setup" alt="Setup">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/setup.svg" height="45px" name="setup" alt="Setup">
 </a>
 
 Add this line to your application's Gemfile:
@@ -182,7 +182,7 @@ On Rubygems:
 <br>
 <br>
 <a href="#table-of-contents">
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/input-types.svg" height="55px" name="input-types" alt="Input Types">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/input-types.svg" height="45px" name="input-types" alt="Input Types">
 </a>
 
 A valid url string is required. If you use ```::Group``` you need to wrap your strings in an array. Consider to use a ```Hash Structure``` for best results.
@@ -299,7 +299,7 @@ Validation Info see [A.2.](#input-a-2)
 <br>
 
 <a href="#table-of-contents">
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/methods.svg" height="55px" name="methods" alt="Methods">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/methods.svg" height="45px" name="methods" alt="Methods">
 </a>
 
 The methods are split in 2 classes "Single" and "Group". Single process only one url and inherit from Single and have all methods for bulk/group processing. For more details see [Structure](#structure).
@@ -619,7 +619,7 @@ Hash
 
 <br>
 <a href="#table-of-contents">
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/structure.svg" height="55px" name="structure" alt="Structure">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/structure.svg" height="45px" name="structure" alt="Structure">
 </a>
 
 Class Overview
@@ -682,7 +682,7 @@ See [Channels](#channels) for more details.
 </a>
 <br>
 <a href="#table-of-contents">
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/options.svg" height="55px" name="options" alt="Options">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/options.svg" height="45px" name="options" alt="Options">
 </a>
 
 Options are split in 2 section: Single and Group. 
@@ -745,7 +745,7 @@ feeds = FeedInto::Group.new(
 <br>
 
 <a href="#table-of-contents">
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/channels.svg" height="55px" name="channels" alt="Channels">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/channels.svg" height="45px" name="channels" alt="Channels">
 </a>
 
 To recognize an url, a "channel" must be created. A channel requires a ```Hash``` which defines the pipeline for the given regex urls. You don´t need to write your own module if you use the standard components. To extend the functionalities you can write your own module and initialize by refer to your module folder.
@@ -890,7 +890,7 @@ feeds
 <br>
 
 <a href="#table-of-contents">
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/contributing.svg" height="55px" name="contributing" alt="Contributing">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/contributing.svg" height="45px" name="contributing" alt="Contributing">
 </a>
 
 Bug reports and pull requests are welcome on GitHub at https:https://raw.githubusercontent.com/feed-into-for-ruby. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https:https://raw.githubusercontent.com/feed-into-for-ruby/blob/master/CODE_OF_CONDUCT.md).
@@ -898,7 +898,7 @@ Bug reports and pull requests are welcome on GitHub at https:https://raw.githubu
 <br>
 
 <a href="#table-of-contents">
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/limitations.svg" height="55px" name="limitations" alt="Limitations">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/limitations.svg" height="45px" name="limitations" alt="Limitations">
 </a>
 
 - Proof of Concept, not battle-tested.
@@ -906,7 +906,7 @@ Bug reports and pull requests are welcome on GitHub at https:https://raw.githubu
 <br>
 
 <a href="#table-of-contents">
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/credits.svg" height="55px" name="credits" alt="Credits">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/credits.svg" height="45px" name="credits" alt="Credits">
 </a>
 
 This gem use following gems:
@@ -922,7 +922,7 @@ This gem use following gems:
 <br>
 
 <a href="#table-of-contents">
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/license.svg" height="55px" name="license" alt="License">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/license.svg" height="45px" name="license" alt="License">
 </a>
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
@@ -930,7 +930,7 @@ The gem is available as open source under the terms of the [MIT License](https:/
 <br>
 
 <a href="#table-of-contents">
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/code-of-conduct.svg" height="55px" name="code-of-conduct" alt="Code of Conduct">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/code-of-conduct.svg" height="45px" name="code-of-conduct" alt="Code of Conduct">
 </a>
     
 Everyone interacting in the feed-into-for-ruby project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https:https://raw.githubusercontent.com/feed-into-for-ruby/blob/master/CODE_OF_CONDUCT.md).
@@ -938,7 +938,7 @@ Everyone interacting in the feed-into-for-ruby project's codebases, issue tracke
 <br>
 
 <a href="#table-of-contents">
-<img href="#table-of-contents" src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/star-us.svg" height="55px" name="star-us" alt="Star us">
+<img href="#table-of-contents" src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/star-us.svg" height="45px" name="star-us" alt="Star us">
 </a>
 
 Please ⭐️ star this Project, every ⭐️ star makes us very happy!
