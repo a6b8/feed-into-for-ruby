@@ -251,6 +251,7 @@ feed.analyse( item: cmd )
 | **url** | ```String``` and ```valid url``` | Yes |  | Set url of Feed. |
 | **category** | ```Symbol``` | No |  :unknown | Set Category of Feed. If empty or not delivered the Category will set to 'Channel 1' |
 <br>
+
 ## FeedInto::Group
 
 2 types of Arrays are allowed: ```Array of String``` or ```Array of Hash```.
