@@ -938,7 +938,7 @@ Everyone interacting in the feed-into-for-ruby project's codebases, issue tracke
 <br>
 
 <a href="#table-of-contents">
-<img href="#table-of-contents" src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/star-us.svg" height="45px" name="star-us" alt="Star us">
+<img href="#table-of-contents" src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/star-us.svg" height="45px" name="star-us" alt="Star Us">
 </a>
 
 Please ⭐️ star this Project, every ⭐️ star makes us very happy!
