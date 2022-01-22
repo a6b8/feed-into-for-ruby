@@ -2,6 +2,7 @@ require './lib/feed_into'
 require 'active_support/core_ext/hash/indifferent_access'
 
 
+
 channel = {
     name: :blockchain,
     sym: :web,
@@ -19,7 +20,7 @@ puts 'CHANNEL'
 feed = FeedInto::Single.new( options: { channels: [ channel ] } )
 feeds = FeedInto::Group.new( single: { channels: [ channel ] } )
 
-root = 'https://raw.githubusercontent.com/a6b8/a6b8/main/assets/additional/feed-into-for-ruby/test/nft.xml'
+root = 'https://raw.githubusercontent.com/a6b8/a6b8/main/assets/additional/feed-into-for-ruby/test/'
 
 tests = {
     single: {
