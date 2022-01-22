@@ -1,8 +1,6 @@
 require './lib/feed_into'
 require 'active_support/core_ext/hash/indifferent_access'
 
-
-
 channel = {
     name: :blockchain,
     sym: :web,
@@ -112,7 +110,7 @@ puts "- group string:\t\t\t#{results.last}"
 results.push( feeds
     .analyse( items: tests[:group][:string], silent: true )
     .merge
-    .to_h()[:unknown].length == 40 )
+    .to_h() [:unknown].length == 24 )
 puts "- group string error:\t\t#{results.last}"
 
 results.push( feeds
@@ -124,7 +122,7 @@ puts "- group cmds incomplete:\t#{results.last}"
 results.push( feeds
     .analyse( items: tests[:group][:cmds_complete], silent: true )
     .merge
-    .to_h()[:crypto].length  == 40 )
+    .to_h()[:crypto].length  == 24 )
 puts "- group cmds complete:\t\t#{results.last}"
 
 results.push( feeds
@@ -164,19 +162,19 @@ puts "- group string:\t\t\t#{results.last}"
 results.push( feeds_mod
     .analyse( items: tests[:group][:string], silent: true )
     .merge
-    .to_h()[:unknown].length == 40 )
+    .to_h()[:unknown].length == 24 )
 puts "- group string error:\t\t#{results.last}"
 
 results.push( feeds_mod
     .analyse( items: tests[:group][:cmds_incomplete], silent: true )
     .merge
-    .to_h().keys.length == 2 )# [:unknown].length == 40
+    .to_h().keys.length == 2 )# [:unknown].length == 24
 puts "- group cmds incomplete:\t#{results.last}"
 
 results.push( feeds_mod
     .analyse( items: tests[:group][:cmds_complete], silent: true )
     .merge
-    .to_h()[:crypto].length  == 40 )
+    .to_h()[:crypto].length  == 24 )
 puts "- group cmds complete:\t\t#{results.last}"
 
 results.push( feeds_mod
