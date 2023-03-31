@@ -25,7 +25,7 @@ channels_settings = {
     transform: nil,
     post: [ :pre_titles ]
 }
-
+ 
 feeds = FeedInto::Group.new( 
     single: { channels: [ channels_settings ] } 
 )
