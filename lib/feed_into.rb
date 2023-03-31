@@ -177,7 +177,6 @@ module FeedInto
         end
 
         messages.concat( m0 )
-
         if cmd[:valid]
           channel = obj[:channels].find { | c | c[:name].eql? cmd[:channel] }
           allow_channels = obj[:channels].map { | a | ( 'crl_' + a[:name].to_s ).to_sym }
@@ -306,8 +305,10 @@ module FeedInto
     def load_modules( folder )
       mods = []
       searchs = []
+
       Dir[ folder + '*.*' ].each do | path |
-        require_relative path
+        #require_relative path
+        require path
 
         search = open( path ).read.split( "\n" )
           .find { | a | a.include?( 'module' ) }

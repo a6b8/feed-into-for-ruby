@@ -3,8 +3,8 @@ require 'active_support/core_ext/hash/indifferent_access'
 
 puts 'MODULES:'
 
-feed = FeedInto::Single.new( modules: '../test/modules/' )
-feeds = FeedInto::Group.new( modules: '../test/modules/' ) 
+feed = FeedInto::Single.new( modules: './test/modules/' )
+feeds = FeedInto::Group.new( modules: './test/modules/' ) 
 
 root = 'https://raw.githubusercontent.com/a6b8/a6b8/main/assets/additional/feed-into-for-ruby/test/'
     
@@ -74,8 +74,6 @@ tests = {
 }
 
 
-puts
-
 res = feed.analyse( item: tests[:single][:string_error] )
 puts "- single-error:\t\t\t#{!res[:success]}"
 
@@ -93,13 +91,14 @@ puts "- single cmd error:\t\t#{!res[:success]}"
 
 res = feeds
     .analyse( items: tests[:group][:string], silent: true )
-    .to_h()[:unknown][ 0 ][:result][:items][ 0 ][:title].class.eql? String
+    .merge()
+    .to_h()[:unknown][ 0 ][:title].class.eql? String
 puts "- group string:\t\t\t#{res}"
 
 res = feeds
     .analyse( items: tests[:group][:string], silent: true )
     .merge
-    .to_h()[:unknown].length == 40
+    .to_h()[:unknown].length == 24
 puts "- group string error:\t\t#{res}"
 
 res = feeds
@@ -111,8 +110,10 @@ puts "- group cmds incomplete:\t#{res}"
 res = feeds
     .analyse( items: tests[:group][:cmds_complete], silent: true )
     .merge
-    .to_h()[:crypto].length  == 40
+    .to_h()
+    .to_h()[:crypto].length == 24
 puts "- group cmds complete:\t\t#{res}"
+
 
 res = feeds
     .analyse( items: tests[:group][:cmds_error], silent: true )
