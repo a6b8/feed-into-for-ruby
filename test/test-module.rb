@@ -7,7 +7,7 @@ feed = FeedInto::Single.new( modules: './test/modules/' )
 feeds = FeedInto::Group.new( modules: './test/modules/' ) 
 
 root = 'https://raw.githubusercontent.com/a6b8/a6b8/main/assets/additional/feed-into-for-ruby/test/'
-    
+
 tests = {
     single: {
         string_error: 'test',
