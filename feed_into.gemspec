@@ -36,6 +36,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'tzinfo', '~> 2.0.4'
   spec.add_dependency 'cgi', '~> 0.2.0'
   spec.add_dependency 'json', '~> 2.5.1'
+  spec.add_dependency 'uri', '~> 0.12.1'
   # spec.add_dependency 'rss', '~> 0.2.9'
   spec.add_dependency 'net-http', '~> 0.1.1'
   spec.add_dependency 'activesupport', '~> 6.1'
