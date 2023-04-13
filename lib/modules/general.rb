@@ -34,9 +34,8 @@ module General
     def crl_general_download( url, obj )
       version = ( rand( 89.0..91.0 ) + ( rand( 530.0..540.0 ) / 1000 ) ).round( 2 ) 
       agent = obj[:format][:download][:agent].gsub( '{{version}}', version.to_s )
-  
       uri = URI( url )
-  
+
       header = {}
       header['User-Agent'] = agent
       header['Accept'] = 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
@@ -49,7 +48,7 @@ module General
       header['Sec-Fetch-User'] = '?1'
       header['Pragma'] = 'no-cache'
       header['Cache-Control'] = 'no-cache'
-  
+
       response = Net::HTTP.get_response( uri, header )
       return response.body, [ "Download: Status #{response.code}" ]
     end

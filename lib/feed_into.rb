@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative 'feed_into/version'
 require_relative './modules/general.rb'
 
@@ -12,7 +10,7 @@ require 'active_support/core_ext/hash/indifferent_access'
 #require 'active_support/core_ext/hash'
 require 'cgi'
 require 'json'
-require 'rss'
+
 
 module FeedInto
   class Error < StandardError; end
@@ -59,7 +57,7 @@ module FeedInto
     include General
 
 
-    def initialize( modules: nil, options: {} )
+    def initialize( modules: nil, options: {}, silent: false )
       mdl = modules.class.eql? String
       chn = options.keys.include? :channels
       mode = :not_found
@@ -82,7 +80,7 @@ module FeedInto
           @single[:channels].concat( crl_general_channels() )
 
           chn ? @single[:channels].concat( transfer ) : ''
-          mdl ? @single[:channels].concat( load_modules( modules ) ) : ''
+          mdl ? @single[:channels].concat( load_modules( modules, silent ) ) : ''
 
           @single = options_update( options, @single, false )
           @settings = @single
@@ -206,7 +204,7 @@ module FeedInto
         result[:status] = status
 
       rescue => e
-        messages.push( "Begin/Rescue: #{e}" )
+        messages.push( "Begin/Rescue: #{e}, #{messages}, #{cmd}" )
 
         result[:cmd] = cmd
         result[:result] = data 
@@ -302,12 +300,12 @@ module FeedInto
     private
 
 
-    def load_modules( folder )
+    def load_modules( folder, silent )
       mods = []
       searchs = []
 
       Dir[ folder + '*.*' ].each do | path |
-        #require_relative path
+        # require_relative path
         require path
 
         search = open( path ).read.split( "\n" )
@@ -335,7 +333,7 @@ module FeedInto
         channels.push( channel )
       end
 
-      puts "#{mods.length} Module#{mods.length > 2 ? 's' : ''} loaded (#{mods.join(', ')})"
+      !silent ? puts( "#{mods.length} Module#{mods.length > 2 ? 's' : ''} loaded (#{mods.join(', ')})" ) : ''
       return channels
     end
 
@@ -820,7 +818,7 @@ module FeedInto
     }
 
 
-    def initialize( modules: nil, group: {}, single: {} )
+    def initialize( modules: nil, group: {}, single: {}, silent: false )
       mdl = modules.class.eql? String
       chn = single.keys.include? :channels
       mode = :not_found
@@ -838,7 +836,7 @@ module FeedInto
         @group[:meta][:timestamp] = Time.now.utc.to_s
         
         if options_update( group, @group, true )
-          @single = Single.new( modules: modules, options: single )
+          @single = Single.new( modules: modules, options: single, silent: silent )
           @group = options_update( group, @group, false )
           @analyse = nil
           @merge = nil
@@ -1028,6 +1026,38 @@ module FeedInto
         !silent ? puts( 'Data is not merged in groups, use .merge() before.' ) : ''
       else
         if @merge.keys.include? key
+          builder = Nokogiri::XML::Builder.new( encoding: 'utf-8' )
+          builder.feed( 
+            xmlns: 'http://www.w3.org/2005/Atom', 
+            'xmlns:dc': 'http://purl.org/dc/elements/1.1/'    
+          ) do | root |
+              meta = {
+                title: key.to_s,
+                updated: Time.now.to_s,
+                dcdate: Time.now.to_s
+              }
+              
+              root.author { | a | a.name { | aa | aa.text( '' ) } }
+              root.id() { | a | a.text( '' ) }
+              root.title() { | a | a.text( meta[:title] ) }
+              root.updated() { | a | a.text( meta[:updated] ) }
+              root['dc'].date { | a | a.text( meta[:dcdate] ) }
+
+              @merge[ key ]
+                .each { | entry | 
+                  root.entry() { | a |
+                    d = Time.at( entry[:timestamp] ).to_datetime.to_s
+
+                    a.id() { | b | b.text( entry[:url] ) }
+                    a.link( rel: 'alternate', href: entry[:url] )
+                    a.title() { | b | b.text( entry[:title] ) }
+                    a.updated() { | b | b.text( d ) }
+                    a['dc'].date { | b | b.text( d ) }
+                  }
+                }
+          end
+
+=begin
           rss = RSS::Maker.make( 'atom' ) do | maker |
             maker.channel.author = ''
             maker.channel.updated = Time.now.to_s
@@ -1045,10 +1075,11 @@ module FeedInto
               end   
             end
           end
+=end
         else
           !silent ? puts( 'Key does not exist.' ) : ''
         end
-        result = rss.to_s.gsub( '<link href="', '<link rel="alternate" href="' )
+        result = builder.to_xml.to_s #rss.to_s.gsub( '<link href="', '<link rel="alternate" href="' )
       end
 
       return result
